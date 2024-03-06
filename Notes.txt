@@ -1,0 +1,28 @@
+This repo is inspired by this
+https://realpython.com/python-https/#why-is-https-important
+
+Asymmetric encryption
+Giving a public key, getting back an encrypted symmetric key to be decrypted by your private key - this solves the problem of a spy that
+watches everything that is on a transmision line. Your data will be safe, in that sense,
+
+BUT it does not solve the problem of a man-in-the-middle attack
+
+Sign with the private key a message to decrypt with the public key successfuly? Does that do a verification that you are authentic?
+
+
+Diffie-Hellman key exchange...
+Steps would be:
+1. Person A encrypts message with B public key
+2. Person B decrypts message with B private key
+3. 
+
+
+Public Key Infrastructure
+Certificates
+
+Trusted Third party
+
+
+chain / web of Trust
+
+
