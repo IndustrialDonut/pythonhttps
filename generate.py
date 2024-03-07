@@ -10,7 +10,7 @@ generate_csr(
     state='CA',
     locality='LA',
     org='donut',
-    alt_names=['localhost'],
+    alt_names=['10.0.0.42'],
     hostname='donut.com',
 )
 
