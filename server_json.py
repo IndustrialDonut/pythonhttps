@@ -1,10 +1,49 @@
-from flask import Flask, jsonify
+# https://realpython.com/api-integration-in-python/#rest-and-python-building-apis
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-@app.route('/')
-def example():
-   return '{"name":"Bob"}'
+countries = [
+    {"id": 1, "name": "Thailand", "capital": "Bangkok", "area": 513120},
+    {"id": 2, "name": "Australia", "capital": "Canberra", "area": 7617930},
+    {"id": 3, "name": "Egypt", "capital": "Cairo", "area": 1010408},
+]
 
-if __name__ == '__main__':
-    app.run()
+def _find_next_id():
+    return max(country["id"] for country in countries) + 1
+
+@app.get("/countries")
+def get_countries():
+    return jsonify(countries)
+
+
+@app.get("/")
+def get_root():
+    return jsonify({
+        'root':{
+            'sub':{
+                'one':[
+                    1, 2, 3, 4, 5, 6, 7,
+                ],
+                'two': [342,4234,32324324,324324,2343242,234,213],
+                'there':[],
+            },
+            'lol':{
+                
+            }
+        }
+    })
+
+
+# @app.get("/countries")
+# def get_countries():
+#     return jsonify(countries)
+
+# @app.post("/countries")
+# def add_country():
+#     if request.is_json:
+#         country = request.get_json()
+#         country["id"] = _find_next_id()
+#         countries.append(country)
+#         return country, 201
+#     return {"error": "Request must be JSON"}, 415
