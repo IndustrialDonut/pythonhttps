@@ -32,7 +32,8 @@ generate_csr(
     state='CA',
     locality='LA',
     org='DONUT SERVER',
-    alt_names=['localhost', 'donutserver', '10.0.0.42', 'etc'],
+    alt_names=['localhost', 'donutserver', 'etc'], # what if you just do '*' ?
+    ip_addresses=['10.0.0.42', '127.0.0.1'],
     hostname='donut-server.com',
 )
 

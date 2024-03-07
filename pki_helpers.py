@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 from cryptography import x509
 from cryptography.x509.oid import NameOID
 from cryptography.hazmat.primitives import hashes
+import ipaddress
 
 
 def generate_private_key(filename: str, passphrase: str):
@@ -91,6 +92,11 @@ def generate_csr(private_key, filename, **kwargs):
     alt_names = []
     for name in kwargs.get("alt_names", []):
         alt_names.append(x509.DNSName(name))
+    
+    for ip in kwargs.get("ip_addresses", []):
+        ipv4 = ipaddress.IPv4Address(ip)
+        alt_names.append(x509.IPAddress(ipv4))
+
     san = x509.SubjectAlternativeName(alt_names)
 
     builder = (
