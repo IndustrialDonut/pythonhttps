@@ -10,11 +10,6 @@ BUT it does not solve the problem of a man-in-the-middle attack
 Sign with the private key a message to decrypt with the public key successfuly? Does that do a verification that you are authentic?
 
 
-Diffie-Hellman key exchange...
-Steps would be:
-1. Person A encrypts message with B public key
-2. Person B decrypts message with B private key
-3. 
 
 
 Public Key Infrastructure
@@ -22,7 +17,24 @@ Certificates
 
 Trusted Third party
 
-
 chain / web of Trust
 
+Asymmetric key pair can provide:
+Message signatures
+Encryption
 
+
+Diffie-Hellman key exchange... this is the Ephermeral version I think since each time you'll generate a new private/public key pair to use, and send the public one
+that is generated from the private and the shared standard variable Y or whatever
+0. There exists a shared standard variable Y
+1. Mix A.private with Y and send to B, mix B.private with Y and send to A
+2. A has YB and B has YA
+3. A mixes A.private with YB and B mixes B.private with YA -> A has AYB and B has BYA
+4. Since the mixed components of AYB = BYA, A and B now have the same shared symmetric key k
+
+
+This version I think is the original anonymous diffie hellman? 
+My thoughts on public private exchange at first:
+1. Encrypt k with A.public and send to A 
+2. Decrypt with A.private
+3. A has k securely, can now send and receive using AES with key k, symmetric encryption
