@@ -6,8 +6,8 @@ def get_secret_message():
     url = 'https://localhost:5683'
 
 
-    #response = requests.get(url, verify='certs/ca.crt')
-    response = requests.get(url, verify='certs/ca-public-key.pem')
+    response = requests.get(url, verify='certs/ca.crt')
+    #response = requests.get(url, verify='certs/ca-public-key.pem')
     print(f"The secret message is: {response.text}")
 
 
