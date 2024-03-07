@@ -1,11 +1,9 @@
-import os
 import requests
 
 def get_secret_message():
-    #url = 'http://10.0.0.42:5683' #os.environ['SECRET_URL']
-   # url = 'http://127.0.0.1:5683'
+    #url = 'http://10.0.0.42:5683'
     url = 'https://10.0.0.42:5683'
-    response = requests.get(url)
+    response = requests.get(url, verify='ca-public-key.pem')
     print(f"The secret message is: {response.text}")
 
 

@@ -14,12 +14,12 @@ generate_csr(
     hostname='donut.com',
 )
 
-# public_key = generate_public_key(
-#     private_key=private_key,
-#     filename='ca-public-key.pem',
-#     country='US',
-#     state='CA',
-#     locality='LA',
-#     org='donut',
-#     hostname='donut.com',
-# )
+generate_public_key(
+    private_key=private_key,
+    filename='ca-public-key.pem',
+    country='US',
+    state='CA',
+    locality='LA',
+    org='donut',
+    hostname='donut.com',
+)
